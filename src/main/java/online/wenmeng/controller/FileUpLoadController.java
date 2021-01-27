@@ -2,6 +2,7 @@ package online.wenmeng.controller;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
+import online.wenmeng.exception.sysException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,5 +63,17 @@ public class FileUpLoadController {
             e.printStackTrace();
         }
         return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("exception")
+    public String exception() throws sysException {
+
+        try {
+            int i= 10/0;
+        }catch (Exception e){
+            throw new sysException("就是错误了");
+        }
+        return "sucess";
     }
 }
