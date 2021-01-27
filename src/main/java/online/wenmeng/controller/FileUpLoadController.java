@@ -24,12 +24,12 @@ public class FileUpLoadController {
      */
     @ResponseBody
     @RequestMapping("fileupload")
-    public String fileUpLoad(MultipartFile upload){
+    public String fileUpLoad(MultipartFile upload,String name){
         String originalFilename = upload.getOriginalFilename();
         originalFilename = UUID.randomUUID().toString().replace("-","")+originalFilename;
         String path = System.getProperty("user.dir");
         File file = new File(path,originalFilename);
-        System.out.println(file.getAbsolutePath());
+        System.out.println(file.getAbsolutePath()+"\t\tname:"+name);
         try {
             upload.transferTo(file);
         } catch (IOException e) {
