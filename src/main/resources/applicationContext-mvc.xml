@@ -24,6 +24,12 @@
         <!-- #{}为表达式：可以计算其中的简单属性。20M以内就可以 -->
         <property name="maxUploadSize" value="#{1024*1024*20}"/>
     </bean>
+
+    <!--  那些文件不进行拦截  -->
+    <mvc:resources mapping="/css/" location="/css/**"/>
+    <mvc:resources mapping="/img/" location="/img/**"/>
+    <mvc:resources mapping="/js/" location="/js/**"/>
+
     <!-- 扫描静态资源 -->
     <mvc:default-servlet-handler/>
     <!-- 扫描动态资源 -->
