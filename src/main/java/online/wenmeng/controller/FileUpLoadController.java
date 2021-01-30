@@ -69,11 +69,11 @@ public class FileUpLoadController {
     @RequestMapping("exception")
     public String exception() throws sysException {
 
-        try {
+//        try {
             int i= 10/0;
-        }catch (Exception e){
-            throw new sysException("就是错误了");
-        }
+//        }catch (Exception e){
+//            throw new sysException("就是错误了");
+//        }
         return "sucess";
     }
 }
