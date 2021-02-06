@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>文件上传!</h2>
+<% System.out.println("page is success"); %>
 <form action="fileupload" method="post" enctype="multipart/form-data">
     选择文件：<input type="file" name="upload" />
     <input name="name">

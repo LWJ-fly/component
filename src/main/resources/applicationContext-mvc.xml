@@ -29,6 +29,7 @@
     <mvc:resources mapping="/css/" location="/css/**"/>
     <mvc:resources mapping="/img/" location="/img/**"/>
     <mvc:resources mapping="/js/" location="/js/**"/>
+    <mvc:resources mapping="html" location="/**.html"/>
 
     <!-- 扫描静态资源 -->
     <mvc:default-servlet-handler/>
@@ -36,5 +37,16 @@
     <mvc:annotation-driven/>
 
     <!-- 配置异常处理器 -->
-    <bean id="sysExceptionResolver" class="online.wenmeng.exception.sysExceptionResolver"/>
+<!--    <bean id="sysExceptionResolver" class="online.wenmeng.exception.sysExceptionResolver"/>-->
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截的具体方法  拦截所有-->
+            <mvc:mapping path="/**"/>
+            <!-- 配置拦截器 -->
+            <bean class="online.wenmeng.interceptor.MyInterceptor1" />
+            <!-- 不需要拦截的方法 -->
+<!--            <mvc:exclude-mapping path=""/>-->
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
