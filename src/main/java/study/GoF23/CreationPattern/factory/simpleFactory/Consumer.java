@@ -1,4 +1,4 @@
-package study.GoF23.factory.simpleFactory;
+package study.GoF23.CreationPattern.factory.simpleFactory;
 
 /**
  * @Auther: 狼芒
