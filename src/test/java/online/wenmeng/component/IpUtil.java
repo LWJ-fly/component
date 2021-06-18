@@ -1,4 +1,4 @@
-package online.wemnemg.component;
+package online.wenmeng.component;
 
 /**
  * @author SunChong

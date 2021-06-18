@@ -1,7 +1,5 @@
 package online.wenmeng.interceptor;
 
-import online.wenmeng.utils.MyStatic;
-import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -63,7 +61,7 @@ public class MyInterceptor1 implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(final HttpServletRequest request, final HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("afterCompletion "+ex);
         String afterOut = response.getHeader("afterOut");
         if (afterOut!=null&&afterOut.equals("afterOut")){

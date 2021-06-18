@@ -1,6 +1,4 @@
-package online.wemnemg.component;
-
-import java.util.Arrays;
+package online.wenmeng.component;
 
 public class Test {
     public static void main(String[] args) {

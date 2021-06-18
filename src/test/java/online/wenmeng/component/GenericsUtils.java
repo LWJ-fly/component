@@ -1,4 +1,4 @@
-package online.wemnemg.component;
+package online.wenmeng.component;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 

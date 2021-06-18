@@ -1,6 +1,4 @@
-package online.wemnemg.component;
-
-import org.junit.Test;
+package online.wenmeng.component;
 
 import javax.swing.*;
 import java.awt.*;
