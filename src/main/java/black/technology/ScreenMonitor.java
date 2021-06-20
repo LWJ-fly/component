@@ -53,17 +53,24 @@ public class ScreenMonitor {
         //创建存储空间对象
         File file = new File(basePath);
         if (!file.exists() || !file.isDirectory()) {
-            try {
-                Boolean b = file.mkdirs();
-            } catch (Exception e) {
-            }
+            file.mkdirs();
         }
     }
 
     public static void snapShot(String name) throws IOException, AWTException {
         //拷贝屏幕到一个BufferedImage对象screenshot
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();//本地环境
-        BufferedImage screenshot = (new Robot()).createScreenCapture(ge.getMaximumWindowBounds());
+        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();//本地环境
+        GraphicsDevice[] screenDevices = graphicsEnvironment.getScreenDevices();
+        Rectangle virtualBounds = new Rectangle();
+        for (int i = 0; i < screenDevices.length; i++) {
+            GraphicsConfiguration[] configurations = screenDevices[i].getConfigurations();
+            for (int j = 0; j < configurations.length; j++) {
+                System.out.println(configurations[j].getBounds() + "\r\n\r\n");
+                virtualBounds = virtualBounds.union(configurations[j].getBounds());
+            }
+        }
+        virtualBounds.setSize(3600, virtualBounds.height);
+        BufferedImage screenshot = (new Robot()).createScreenCapture(virtualBounds);
         //根据文件前缀变量和文件格式变量，自动生成文件名
         String fileName = new StringBuilder(basePath).append(name).append(".png").toString();
         File file = new File(fileName);
@@ -90,7 +97,7 @@ public class ScreenMonitor {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 //设置账号密码
-                return new PasswordAuthentication("3319691033", "999999999999999999999");
+                return new PasswordAuthentication("3319691033", "9999999999");
             }
         };
 
